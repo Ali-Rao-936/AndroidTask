@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Android Task</string>
+    <string name="no_internet_connection_message">No network available, please check your WiFi or Data connection</string>
+    <string name="no_internet_active_message">No internet available, please check your connected WIFi or Data</string>
+    <string name="this_is_an_image">this is an image</string>
+    <string name="title_activity_product_details">ProductDetailsActivity</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+
+    <string name="order_now">Order Now</string>
+    <string name="description">Description</string>
+    <string name="need_help">NEED HELP?</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="continue_">Continue</string>
+    <string name="product_name">product name</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sign_up">Sign UP</string>
+    <string name="name">Name</string>
+    <string name="register">Register</string>
+</resources>
