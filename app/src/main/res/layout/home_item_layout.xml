@@ -1,98 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_marginTop="10dp">
 
-    <RelativeLayout
-        android:id="@+id/topLayout"
-        android:layout_width="match_parent"
-        android:layout_height="216dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cardUseCompatPadding="true"
-            app:cardElevation="3dp"
-            app:cardCornerRadius="12dp">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/this_is_an_image"
-                android:scaleType="fitXY"
-                android:id="@+id/imgItem"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/txtPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="15dp"
-            android:text="0000AED"
-            android:fontFamily="@font/open_sans_bold"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_marginBottom="18dp"/>
-
-        <RatingBar
-            style="?android:attr/ratingBarStyleSmall"
-            android:max="5"
-            android:stepSize="0.1"
-            android:rating="3"
-            android:layout_width="119dp"
-            android:layout_height="18dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="12dp"
-            android:layout_marginEnd="15dp"/>
-
-
-    </RelativeLayout>
 
     <TextView
-        android:id="@+id/txtProduct"
-        app:layout_constraintTop_toBottomOf="@+id/topLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="5dp"
+        android:id="@+id/txtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:text="@string/product_name"
-        android:fontFamily="@font/open_sans_regular"
-        android:textColor="#444B51"
+        android:fontFamily="@font/readex_pro_bold"
+        android:text="The Times"
+        android:textColor="@color/black"
         android:textSize="15sp"
-        android:layout_marginBottom="12dp"/>
-    <TextView
-        android:id="@+id/txtProductName"
-        app:layout_constraintTop_toBottomOf="@+id/txtProduct"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="15dp"
-        android:gravity="start"
-        android:layout_marginTop="10dp"
-        android:layout_width="0dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtAuthor"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:textColor="#08293B"
+        android:layout_marginBottom="18dp"
+        android:fontFamily="@font/readex_pro_medium"
+        android:text="ET Now"
+        android:textColor="#bcbcbc"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAuthor">
+
+        <ImageView
+            android:id="@+id/imgItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/this_is_an_image"
+            android:scaleType="fitXY" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/readex_pro_regular"
+        android:text="IT a more defensive, stable and core place to be in now: Punita Kumar Sinha IT a more defensive, stable and core place to be in now: Punita Kumar Sinha"
+        android:textColor="@color/black"
         android:textSize="13sp"
-        android:lines="2"
-        android:layout_marginBottom="12dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topLayout" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/readex_pro_medium"
+        android:text="just now"
+        android:textColor="#959494"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle" />
 
     <View
         android:layout_width="0dp"
         android:layout_height="1dp"
-        app:layout_constraintTop_toBottomOf="@+id/txtProductName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="15dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
         android:background="#D8D8D8"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

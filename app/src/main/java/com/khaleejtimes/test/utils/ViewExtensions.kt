@@ -50,10 +50,10 @@ fun ImageView.loadImageFromUri(uri: Uri){
         .into(this)
 }
 
-fun ImageView.loadImageFromPath(path: String, @DrawableRes placeholder:Int = R.drawable.placeholder){
+fun ImageView.loadImageFromPath(path: String?, @DrawableRes placeholder:Int = R.drawable.placeholder){
     Glide
         .with(this.context)
-        .load(path)
+        .load(path ?: "")
         .placeholder(placeholder)
         .into(this)
 }

@@ -1,4 +1,4 @@
-package com.khaleejtimes.test.presentation.home
+package com.khaleejtimes.test.presentation.home.model
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -16,13 +16,12 @@ class HomeViewModel @Inject constructor(private val homeApiUseCase: HomeApiUseCa
     private val state = MutableStateFlow<HomeStateModel>(HomeStateModel.Init)
     val mState: StateFlow<HomeStateModel> get() = state
     private val TAG = "HomeViewModel"
-    private fun setLoading() {
 
+    private fun setLoading() {
         state.value = HomeStateModel.IsLoading(true)
     }
 
     private fun hideLoading() {
-
         state.value = HomeStateModel.IsLoading(false)
     }
 
@@ -35,18 +34,22 @@ class HomeViewModel @Inject constructor(private val homeApiUseCase: HomeApiUseCa
             .collect {
                 hideLoading()
                 Log.d(TAG, " Called collect")
+
                 when (it) {
                     is DataState.GenericError -> {
                         Log.d(TAG, " Called Generic error")
+
+                        state.value = HomeStateModel.StatusFailed(it.error)
                     }
 
                     is DataState.Success -> {
                         Log.d(TAG, "Enter SUCCESS")
-                        state.value =  HomeStateModel.HomeResponse(it.value)
+                        state.value = HomeStateModel.HomeResponse(it.value)
 
 
                     }
                 }
+
             }
     }
 
