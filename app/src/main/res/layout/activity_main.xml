@@ -25,23 +25,27 @@
                 android:layout_centerInParent="true"
                 android:layout_marginBottom="12dp"
                 android:fontFamily="@font/readex_pro_semi_bold"
-                android:text="NewsStand"
+                android:text="@string/newsstand"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
 
         </RelativeLayout>
 
         <EditText
-            android:hint="search news here"
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            app:layout_constraintStart_toStartOf="parent"
+            android:autofillHints=""
+            android:background="@drawable/search_bg"
+            android:hint="@string/search_news_here"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/topLayout"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/topLayout" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvHome"

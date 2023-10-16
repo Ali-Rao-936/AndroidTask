@@ -2,7 +2,6 @@ package com.khaleejtimes.test.presentation.home
 
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.provider.MediaStore.Audio.Artists
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -35,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var dialog: ProgressDialog
     private val TAG = "MainActivity"
 
-    companion object{
+    companion object {
         lateinit var newsList: List<Article>
     }
 
@@ -55,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.getHomeItems("tesla")
 
         //search
-        binding.etSearch.addTextChangedListener(object : TextWatcher{
+        binding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
             }
@@ -65,7 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                if ((s?.length ?: 0) > 3){
+                if ((s?.length ?: 0) > 3) {
                     viewModel.getHomeItems(s.toString())
                 }
             }

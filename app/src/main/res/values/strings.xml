@@ -20,4 +20,7 @@
     <string name="sign_up">Sign UP</string>
     <string name="name">Name</string>
     <string name="register">Register</string>
+    <string name="newsstand">NewsStand</string>
+    <string name="search_news_here">search news here</string>
+    <string name="author">Author :</string>
 </resources>

@@ -25,7 +25,7 @@ class NewsDetailsActivity : AppCompatActivity() {
         binding.article = newsList[position ?: 0]
 
         // back button click
-        binding.imgBack.setOnClickListener { onBackPressed() }
+        binding.imgBack.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
     }
 
