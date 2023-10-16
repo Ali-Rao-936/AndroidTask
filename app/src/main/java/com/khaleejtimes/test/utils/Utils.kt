@@ -1,7 +1,11 @@
 package com.khaleejtimes.test.utils
 
+import android.app.Activity
+import android.content.Context
 import android.text.format.DateUtils
 import android.util.Log
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -26,5 +30,10 @@ object Utils {
         }.toString()
         Log.d("DATE", "" + niceDateStr)
         return niceDateStr
+    }
+
+    fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

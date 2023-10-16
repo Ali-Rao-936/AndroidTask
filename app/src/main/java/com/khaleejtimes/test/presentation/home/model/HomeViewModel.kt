@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.khaleejtimes.test.data.common.utils.DataState
 import com.khaleejtimes.test.domain.home.usesase.HomeApiUseCase
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,6 +28,9 @@ class HomeViewModel @Inject constructor(private val homeApiUseCase: HomeApiUseCa
     }
 
     fun getHomeItems(query : String) = viewModelScope.launch {
+//        if (this.isActive){
+//            this.cancel()
+//        }
         homeApiUseCase.execute(HomeApiUseCase.Params(query))
             .onStart {
                 Log.d(TAG, " Called on start")

@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HealthSuitDemo">
+        android:theme="@style/Theme.AndroidTask">
         <activity
             android:name=".presentation.splash.SplashActivity"
             android:exported="true">

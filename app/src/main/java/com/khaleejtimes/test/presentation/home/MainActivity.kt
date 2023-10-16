@@ -2,9 +2,9 @@ package com.khaleejtimes.test.presentation.home
 
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView.OnEditorActionListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -18,6 +18,7 @@ import com.khaleejtimes.test.domain.home.response.NewsResponse
 import com.khaleejtimes.test.presentation.home.adaptr.HomeItemsAdapter
 import com.khaleejtimes.test.presentation.home.model.HomeStateModel
 import com.khaleejtimes.test.presentation.home.model.HomeViewModel
+import com.khaleejtimes.test.utils.Utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -34,9 +35,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var dialog: ProgressDialog
     private val TAG = "MainActivity"
 
-    companion object {
-        lateinit var newsList: List<Article>
-    }
+    lateinit var newsList: List<Article>
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,24 +54,21 @@ class MainActivity : AppCompatActivity() {
         viewModel.getHomeItems("tesla")
 
         //search
-        binding.etSearch.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        binding.etSearch.setOnEditorActionListener(OnEditorActionListener{ search, actionId, _ ->
 
-            }
+            if (actionId == EditorInfo.IME_ACTION_GO) {
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                if ((s?.length ?: 0) > 3) {
-                    viewModel.getHomeItems(s.toString())
+                if(search.text.toString() != ""){
+                    viewModel.getHomeItems(search.text.toString())
+                    hideKeyboard(binding.etSearch)
                 }
+
+                return@OnEditorActionListener true
             }
-
+            false
         })
-
     }
+
 
     private fun initObserver() {
         viewModel.mState.flowWithLifecycle(

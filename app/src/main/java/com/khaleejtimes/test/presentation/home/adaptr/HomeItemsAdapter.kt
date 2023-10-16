@@ -6,13 +6,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.khaleejtimes.test.R
+import com.google.gson.Gson
 import com.khaleejtimes.test.databinding.HomeItemLayoutBinding
 import com.khaleejtimes.test.domain.home.response.Article
 import com.khaleejtimes.test.presentation.home.NewsDetailsActivity
-import com.khaleejtimes.test.utils.Constants.ITEM_POSITION
-import com.khaleejtimes.test.utils.Utils
-import com.khaleejtimes.test.utils.loadImageFromPath
+import com.khaleejtimes.test.utils.Constants.SELECTED_ITEM
 
 class HomeItemsAdapter(val context: Context, private val list: List<Article>) :
     RecyclerView.Adapter<HomeItemsAdapter.ViewHolder>() {
@@ -22,8 +20,9 @@ class HomeItemsAdapter(val context: Context, private val list: List<Article>) :
         RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
+                val jsonString = Gson().toJson(list[adapterPosition])
                 val intent = Intent(context, NewsDetailsActivity::class.java)
-                intent.putExtra(ITEM_POSITION, adapterPosition)
+                intent.putExtra(SELECTED_ITEM, jsonString)
                 (context as Activity).startActivity(intent)
             }
         }
